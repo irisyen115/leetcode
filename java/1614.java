@@ -8,8 +8,7 @@ class Solution {
                 if(count > max){
                     max = count; 
                 }                
-            }
-            if(ch == ')'){
+            } else if(ch == ')'){
                 count--;
             }
         }
