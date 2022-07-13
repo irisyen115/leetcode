@@ -4,7 +4,7 @@ class Solution {
         String ans = "";
         int pos = 0;
         while(pos < a.length){
-            if(a.length > 2 && pos + 2 < a.length && a[pos+2] == '#') {
+            if(a.length > pos + 2 && a[pos+2] == '#') {
                 ans += (char)('a' + ((a[pos] - '0') * 10 + (a[pos + 1] -'0')) - 1 );
                 pos += 3;
             } else {
