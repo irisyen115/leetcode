@@ -5,7 +5,7 @@ class Solution {
             int left = 0;
             int right = ans.length - 1;
             while(left < right) {
-                if(st.charAt(left) == st.charAt(right)) {
+                if(ans[left] == ans[right]) {
                     left++;
                     right--;                    
                 } else {
