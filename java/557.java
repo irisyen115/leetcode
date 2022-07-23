@@ -11,14 +11,16 @@ class Solution {
             right--;
             left++;
         }
-        String ans = String.valueOf(ch);
-        String[] wer = ans.split(" ");
-        for(int i = 0; i < wer.length/2; i++){
-            String tmp;
-            tmp = wer[i];
-            wer[i] = wer[wer.length-1-i];
-            wer[wer.length-1-i] = tmp;
+        String[] ans = String.valueOf(ch).split(" ");
+	left = 0;
+	right = ans.length - 1;
+	while (left < right) {
+            String tmp = ans[left];
+            ans[left] = ans[right];
+            ans[right] = tmp;
+	    left++; 
+	    right--;
         }
-        return String.join(" ",wer);
+        return String.join(" ",ans);
     }
 }
