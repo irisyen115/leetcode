@@ -4,10 +4,10 @@ class Solution {
         int tail = nums.length-1;
         while(head < tail) {
             int tmp;
-            if(nums[head] % 2 == 0) {
+            while (nums[head] % 2 == 0 && head < nums.length-1) {
                 head++;
             }
-            if(nums[tail] % 2 == 1) {
+            while (nums[tail] % 2 == 1 && tail > 0) {
                 tail--;
             }
             if(head < tail) {
