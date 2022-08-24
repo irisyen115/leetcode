@@ -1,15 +1,11 @@
 class Solution {
     public int minOperations(int[] nums) {
         int count = 0;
-        int index = 0;
-        while(index < nums.length-1) {
-            if(nums[index+1] > nums[index]) {
-                index++;
-            } else {
-                count += (nums[index] + 1) - nums[index+1];
-                nums[index+1] = nums[index] + 1;
-                index++;
-            }            
+        for(int i = 0; i < nums.length-1; i++) {
+            if(nums[i+1] <= nums[i]) {
+                count += (nums[i] + 1) - nums[i+1];
+                nums[i+1] = nums[i] + 1;
+            }           
         }
         return count;
     }
