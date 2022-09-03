@@ -4,7 +4,7 @@ class Solution {
         int head = 0;
         int tail = a.length-1;
         int count = 0;
-        while(head < tail) {
+        while(head <= tail) {
             if(a[head] != a[tail]) {
                 count = 2;
                 break;
