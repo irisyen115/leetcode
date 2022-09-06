@@ -3,17 +3,11 @@ class Solution {
         char[] a = s.toCharArray();
         int head = 0;
         int tail = a.length-1;
-        int count = 0;
-        while(head <= tail) {
-            if(a[head] != a[tail]) {
-                count = 2;
-                break;
-            } else {
-                count = 1;                
+        while(head < tail) {
+            if(a[head++] != a[tail--]) {
+                return 2;                
             }
-            head++;
-            tail--;
         }
-        return count;
+        return 1;
     }
 }
