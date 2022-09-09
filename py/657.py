@@ -13,7 +13,7 @@ class Solution(object):
                 up_down-=1
             elif(i == 'L'): 
                 left_right+=1
-            else:
+            elif(i == 'R'):
                 left_right-=1
                     
         return (up_down == 0) and (left_right == 0)
