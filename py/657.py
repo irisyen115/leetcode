@@ -3,24 +3,18 @@ class Solution(object):
         """
         :type moves: str
         :rtype: bool
-        """
-        a = []
-        
-        for i in moves:
-            a.append(i)
-            
+        """        
         up_down = 0
         left_right = 0
-        
-        for ch in a:
-            if(ch == 'U'):
+        for i in moves:
+            if(i == 'U'):
                 up_down+=1
-            elif(ch == 'D'):
+            elif(i == 'D'):
                 up_down-=1
-            elif(ch == 'L'): 
+            elif(i == 'L'): 
                 left_right+=1
             else:
                 left_right-=1
-                
+                    
         return (up_down == 0) and (left_right == 0)
                 
