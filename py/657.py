@@ -7,13 +7,13 @@ class Solution(object):
         up_down = 0
         left_right = 0
         for i in moves:
-            if(i == 'U'):
+            if i == 'U':
                 up_down+=1
-            elif(i == 'D'):
+            elif i == 'D':
                 up_down-=1
-            elif(i == 'L'): 
+            elif i == 'L': 
                 left_right+=1
-            elif(i == 'R'):
+            elif i == 'R':
                 left_right-=1
                     
         return (up_down == 0) and (left_right == 0)

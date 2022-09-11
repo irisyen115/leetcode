@@ -6,6 +6,6 @@ class Solution(object):
         """
         c=Counter(num)        
         for i,v in enumerate(num):            
-            if(v != str(c[str(i)])):
+            if v != str(c[str(i)]):
                 return False            
         return True        

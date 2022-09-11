@@ -8,9 +8,9 @@ class Solution(object):
         c=Counter(arr)   
         cur = 0;
         for i in arr:            
-            if(c[i] != 1):
+            if c[i] != 1:
                 continue
             cur+=1
-            if(cur == k):
+            if cur == k:
                 return i
         return ""
