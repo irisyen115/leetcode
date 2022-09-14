@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        for i in range(len(s)-1):
-            if s[i] == 'b' and s[i+1] == 'a':
+        for x, y in zip(s, s[1:]):
+            if x == 'b' and y == 'a':
                 return False
         return True
