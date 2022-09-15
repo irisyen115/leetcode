@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution(object):
     def kthDistinct(self, arr, k):
         """
@@ -6,7 +8,7 @@ class Solution(object):
         :rtype: str
         """
         c=Counter(arr)   
-        cur = 0;
+        cur = 0
         for i in arr:            
             if c[i] != 1:
                 continue
