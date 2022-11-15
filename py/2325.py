@@ -5,14 +5,16 @@ class Solution(object):
         :type message: str
         :rtype: str
         """
-        k = ''
+        k = {}
+        ch = 0
         for v in key:
             if v not in k and v != ' ':
-                k += v    
+                k[v] = chr(97 + ch)
+                ch += 1
         ans = ''
         for v in message:
             if v == ' ':
                 ans += v
             else:
-                ans += chr(97 + (k.index(v)))
+                ans += k[v]
         return ans
