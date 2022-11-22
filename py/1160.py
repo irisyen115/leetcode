@@ -1,21 +1,16 @@
+def contains(container, contained):
+    return all(container[x] >= contained[x] for x in contained)
 class Solution(object):
     def countCharacters(self, words, chars):
         """
         :type words: List[str]
         :type chars: str
         :rtype: int
-        """        
-        count = 0
-        for w in words:
-            c = list(chars)        
-            check = True
-            for ch in w:
-                if ch not in c:
-                    check = False
-                    break
-                else:
-                    c.remove(ch)
-            if check:
-                count += len(w)
+        """     
+        count = 0       
+        c = Counter(chars)
+        for v in words:
+            d = Counter(v)
+            if contains(c,d):
+                count += len(v)
         return count
-            

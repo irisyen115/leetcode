@@ -8,7 +8,7 @@ class Solution(object):
         c = set(s)
         for a in c:
             if a.upper() in c and a.lower() in c:
-                ans += a.upper()
+                ans = max(ans, a.upper()) 
         if ans:
             return max(ans)
         else:
