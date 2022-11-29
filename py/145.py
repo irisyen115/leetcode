@@ -9,12 +9,5 @@ class Solution(object):
         """
         :type root: TreeNode
         :rtype: List[int]
-        """
-        ans = []
-        
-        if root != None: 
-            ans.extend(self.postorderTraversal(root.left))
-            ans.extend(self.postorderTraversal(root.right))        
-            ans.append(root.val)
-        
-        return ans
+        """        
+        return [] if root is None else self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]

@@ -10,11 +10,5 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        ans = []
 
-        if root != None:
-            ans.append(root.val)
-            ans.extend(self.preorderTraversal(root.left))
-            ans.extend(self.preorderTraversal(root.right))
-
-        return ans
+        return [] if root is None else [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right) 
