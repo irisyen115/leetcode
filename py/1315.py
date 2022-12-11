@@ -10,28 +10,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        level = [root]
-        count = 0
-        while level:
-            next_level = []
-            next_next_level = []
-            for node in level:
-                if node.left:
-                    next_level.append(node.left)
-                if node.right:
-                    next_level.append(node.right)                
-            for node in level:               
-                    if node.val % 2 == 0:                                                       
-                        if node.left in next_level:
-                            if node.left.left:
-                                next_next_level.append(node.left.left)
-                            if node.left.right:
-                                next_next_level.append(node.left.right)
-                        if node.right in next_level:
-                            if node.right.left:
-                                next_next_level.append(node.right.left)
-                            if node.right.right:
-                                next_next_level.append(node.right.right)                  
-            count += sum(node.val for node in next_next_level)          
-            level = next_level
-        return count
+        self.total = 0
+        def dfs(node, parent, grandparent):
+            if not node: return
+            if grandparent % 2 == 0:
+                self.total += node.val
+            dfs(node.left, node.val, parent)
+            dfs(node.right, node.val, parent)
+            return self.total
+        dfs(root, 1, 1)
+        return self.total

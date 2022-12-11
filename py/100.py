@@ -11,23 +11,12 @@ class Solution(object):
         :type q: TreeNode
         :rtype: bool
         """
-        def getlist(root):
-            ans = []
-            if root is None:
-                return ans
-
-            if root.left:
-                ans.extend(getlist(root.left))
-            else:
-                ans.append('null')
-            if root.right:
-                ans.extend(getlist(root.right))
-            else:
-                ans.append('null')
-            ans.append(root.val)
-
-            return ans
-        pl = getlist(p)
-        ql = getlist(q)
-
-        return pl == ql
+        def dfs(roota, rootb):
+            if not roota and not rootb:
+                return True
+            elif not roota or not rootb:
+                return False
+            elif roota.val != rootb.val:
+                return False
+            return dfs(roota.left, rootb.left) and dfs(roota.right, rootb.right) 
+        return dfs(p, q)       
