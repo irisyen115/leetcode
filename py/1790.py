@@ -10,11 +10,7 @@ class Solution(object):
             if a != b:
                 if len(pairs) == 2 : return False
                 pairs.append((a, b))
-        if len(pairs) == 1:
-            return False
-        elif len(s1) <= 2 and s1 != s2:
-            return False
-        elif len(pairs) == 2 and (pairs[0][0] != pairs[1][1] or pairs[0][1] != pairs[1][0]):
-            return False
-        else: 
-            return True
+        if len(pairs) == 2:
+            (a, b), (c, d) = pairs
+            return a == d and b == c
+        return len(pairs) == 0
