@@ -9,8 +9,8 @@ class Solution(object):
             if s[i] == '(':
                 stack.append(s[i])                       
             elif s[i] == ')':     
-                if '(' not in stack:
-                    stack.append(s[i])                   
-                else:
-                    stack.remove('(')      
+                if stack and stack[-1] == '(':
+                    stack.pop()
+                else:                
+                    stack.append(s[i])                                                   
         return len(stack)

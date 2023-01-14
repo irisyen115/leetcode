@@ -3,18 +3,15 @@ class Solution(object):
         """
         :type s: str
         :rtype: int
-        """
-        ans = []
-        head = 1
-        st = "" + s[0]
-        while head <= len(s) - 1:
+        """        
+        head = 0
+        st = set()
+        count = 1
+        while head < len(s):
             if s[head] not in st:
-                st += s[head]
+                st.add(s[head])
                 head += 1
             elif s[head] in st:                
-                ans.append(st)
-                st = ""
-        if st:    
-            ans.append(st)
-        return len(ans)
-
+                count += 1
+                st = set()        
+        return count
