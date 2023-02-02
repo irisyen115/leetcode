@@ -10,10 +10,4 @@ class Solution(object):
         """
         x = Counter(s)
         y = Counter(t)
-        count = 0
-        for v in string.ascii_lowercase:
-            if x[v] < y[v]:
-                count += y[v] - x[v]
-            if x[v] > y[v]:
-                count += x[v] - y[v]
-        return count
+        return sum(abs(x[v] - y[v]) for v in string.ascii_lowercase)
