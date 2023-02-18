@@ -4,10 +4,13 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        m = -1
-        for i in range(len(s)-1):
-            l = s[:i+1]
-            r = s[i+1:]
-            if l.count('0') + r.count('1') > m:
-                m = l.count('0') + r.count('1')
-        return m
+        l = s[0] == '0'
+        r = s[1:].count('1')
+        M = l + r
+        for i in range(1,len(s)-1):
+            if s[i] == '0':
+                l += 1
+            else:
+                r -= 1
+            M = max(M, l + r)
+        return M
