@@ -3,11 +3,12 @@ class Solution(object):
         """
         :type words: List[str]
         :rtype: List[str]
-        """        
+        """  
+        s = [words[0]]      
         i = 1
         while i < len(words):
-            if sorted(words[i-1]) == sorted(words[i]):                
-                words.pop(i)
-            else:
-                i += 1   
-        return words
+            s.append(words[i])
+            if sorted(words[i-1]) == sorted(words[i]):                                 
+                s.pop()
+            i += 1 
+        return s
