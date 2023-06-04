@@ -4,9 +4,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        a = -1
         for i in range(len(nums)):
-            if nums[i] == i % 10:
-                a = i 
-                break           
-        return a
+            if nums[i] == i % 10:return i      
+        return -1
