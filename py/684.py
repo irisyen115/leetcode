@@ -4,7 +4,6 @@ class Solution(object):
         :type edges: List[List[int]]
         :rtype: List[int]
         """
-        e = 0
         d = {i:i for i in range(1, len(edges)+1)}
         
         def findRoot(x):
