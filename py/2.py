@@ -12,26 +12,25 @@ class Solution(object):
         """
         dummy = ListNode(0)
         cur = dummy
-        total_1 = ''
-        total_2 = ''
+        carry = 0        
 
         while l1 or l2:            
+            total = 0
             if l1:
-                total_1 += str(l1.val)
+                total += l1.val
                 l1 = l1.next
 
             if l2:
-                total_2 += str(l2.val)
+                total += l2.val
                 l2 = l2.next
         
-        total = int(total_1[::-1]) + int(total_2[::-1])
-
-        if total == 0: 
-            return cur
-
-        while total:
-            cur.next = ListNode(total % 10)
-            total = total // 10
+            total = total + carry
+            cur.next = ListNode(total % 10)            
+            carry = total // 10
+            total = total % 10
             cur = cur.next
+        
+        if carry:
+            cur.next = ListNode(carry)            
 
         return dummy.next
