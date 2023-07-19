@@ -3,8 +3,5 @@ class Solution(object):
         """
         :type n: int
         :rtype: bool
-        """
-        binary = bin(n)
-        if binary[2] != '1':
-            return False
-        return '1' not in binary[3:]
+        """        
+        return False if n == 0 else n & (n - 1) == 0        

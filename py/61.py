@@ -10,27 +10,37 @@ class Solution(object):
         :type k: int
         :rtype: ListNode
         """
-        dummy = ListNode()
-        ans = ListNode()   
-        ans = dummy
-        node = head
-        a = []
+        cur = head
+        llen = 0      
+
         if head == None:
             return None
 
-        while node:
-            a.append(node.val)
+        while head:
+            head = head.next
+            llen += 1
+            
+        t = k % llen
+
+        if t == 0:
+            return cur
+
+        k = llen - (k % llen)
+        tail = cur
+        head = ListNode()
+
+        while k > 1:
+            tail = tail.next
+            k -= 1
+        if k == 1:
+            head = tail.next
+            tail.next = None
+                
+        node = head
+                
+        while t > 1:
             node = node.next
-            
-        k = k % len(a)
-            
-        while a:
-            while k:
-                cur = ListNode(a.pop(-k))        
-                ans.next = cur
-                ans = ans.next
-                k -= 1
-            cur = ListNode(a.pop(0))
-            ans.next = cur
-            ans = ans.next
-        return dummy.next
+            t -= 1
+        if t == 1:
+            node.next = cur
+        return head
