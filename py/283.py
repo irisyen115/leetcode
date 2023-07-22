@@ -4,12 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        i = 0
-        z = 0
-        while i < len(nums):
-            if nums[i] == 0:
-                nums.pop(i)
-                z += 1
-            else:
-                i += 1
-        return nums.extend([0] * z)
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] == 0 and nums[j] != 0:
+                    nums[i], nums[j] = nums[j], nums[i]
+                    break
