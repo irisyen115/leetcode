@@ -14,7 +14,7 @@ class Solution(object):
             ans += s[i]
             i += 1
 
-        while i < n and s[i].isdigit():
+        while i < len(s) and s[i].isdigit():
             ans += s[i]
             i += 1
 
@@ -22,6 +22,6 @@ class Solution(object):
             return 0
         else:
             result = int(ans)
-            INT_MAX = 2**31 - 1
-            INT_MIN = -2**31
+            INT_MAX = 2 ** 31 - 1
+            INT_MIN = -2 ** 31
             return max(min(result, INT_MAX), INT_MIN)
